@@ -1,7 +1,7 @@
 /*
 单链表
-头插法建立单链表 CreateListF(&L, int a[], int n)
-尾插法建立单链表 CreateListR(&L, int a[], int n)
+头插法建立单链表 CreateListF(&L, a[], n)
+尾插法建立单链表 CreateListR(&L, a[], n)
 初始化 InitList(&L)
 销毁 DestroyList(&L)
 判断是否为空 ListEmpty(L)
@@ -10,6 +10,7 @@
 求某个数据元素值 GetElmem(L, i, &e)
 按元素值查找 LocateElem(L, e)
 插入数据元素 ListInsert(&L, i, e) 
+删除数据元素 ListDelete(&L, i, &e) 
 */
 
 #include <iostream>
