@@ -13,6 +13,9 @@
 Êä³ö´® DispStr(s)
 */
 
+#ifndef SQSTRING
+#define SQSTRING
+
 #include <iostream>
 
 using namespace std;
@@ -150,3 +153,5 @@ void DispStr(SqString s) {
 		cout << endl;
 	}
 }
+
+#endif //SQSTRING
