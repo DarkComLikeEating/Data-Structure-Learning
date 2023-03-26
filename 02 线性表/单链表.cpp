@@ -26,23 +26,23 @@ typedef struct LNode {
 void CreateListF(LinkNode * &L, int a[], int n) {
 	LinkNode * s;
 	L = (LinkNode *) malloc (sizeof(LinkNode));
-	L->next = NULL;
+	L->next = NULL;		//创建头结点，其next设为NULL
 	for (int i = 0; i < n; i ++) {
 		s = (LinkNode *) malloc (sizeof(LinkNode));
 		s->data = a[i];
-		s->next = L->next;
+		s->next = L->next;	
 		L->next = s;
 	} 
 }
 
 void CreateListR(LinkNode * &L, int a[], int n) {
 	LinkNode * s, * r;
-	L = (LinkNode *) malloc (sizeof(LinkNode));
+	L = (LinkNode *) malloc (sizeof(LinkNode));	//创建头结点
 	r = L;
 	for (int i = 0; i < n; i ++) {
 		s = (LinkNode *) malloc (sizeof(LinkNode));
 		s->data = a[i];
-		r->next = s;
+		r->next = s;	//第一次是将s插入到头结点(r = L)之后，随后都是插入到r之后
 		r = s;
 	}
 	r->next = NULL;
@@ -77,7 +77,7 @@ int ListLength(LinkNode * L) {
 	return n;
 }
 
-DispList(LinkNode * L) {
+void DispList(LinkNode * L) {
 	LinkNode * p = L->next;
 	while (p != NULL) {
 		cout << p->data << " ";
