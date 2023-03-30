@@ -8,59 +8,58 @@
 È¡Õ»¶¥ÔªËØ GetTop(s, &e) 
 */ 
 
+#ifndef STACK
+#define STACK
+
 #include <iostream>
 #include <malloc.h>
 
 using namespace std;
 
-typedef struct linknode {
-	int data;
-	struct linknode * next;
-} LinkStNode;
+const int Maxsize = 100;
 
-void InitStack(LinkStNode * &s) {
-	s = (LinkStNode * ) malloc (sizeof(LinkStNode));
-	s->next = NULL;
+typedef struct {
+	char data[Maxsize];
+	int top;
+} SqStack;
+
+void InitStack(SqStack * &s) {
+	s = (SqStack * ) malloc (sizeof(SqStack));
+	s->top = -1;
 }
 
-void DestroyStack(LinkStNode * &s) {
-	LinkStNode * pre = s, * p = s->next;
-	while (p != NULL) {
-		free(pre);
-		pre = p;
-		p = pre->next;
-	}
-	free(pre);
+void DestroyStack(SqStack * &s) {
+	free(s);
 }
 
-bool StackEmpty(LinkStNode * s) {
-	return (s->next == NULL);
+bool StackEmpty(SqStack * s) {
+	return (s->top == -1);
 }
 
-void Push(LinkStNode * &s, int e) {
-	LinkStNode * p;
-	p = (LinkStNode * ) malloc (sizeof(LinkStNode));
-	p->data = e;
-	p->next = s->next;
-	s->next = p;
-}
-
-bool Pop(LinkStNode * &s, int &e) {
-	LinkStNode * p;
-	if (s->next == NULL) {
+bool Push(SqStack * &s, char e) {
+	if (s->top == Maxsize - 1) {
 		return false;
 	}
-	p = s->next;
-	e = p->data;
-	s->next = p->next;
-	free(p);
+	s->top ++;
+	s->data[s->top] = e;
 	return true;
 }
 
-bool GetTop(LinkStNode * s, int &e) {
-	if (s->next == NULL) {
+bool Pop(SqStack * &s, char &e) {
+	if (s->top == -1) {
 		return false;
 	}
-	e = s->next->data;
+	e = s->data[s->top];
+	s->top --;
 	return true;
 }
+
+bool GetTop(SqStack * &s, char &e) {
+	if (s->top == -1) {
+		return false;
+	}
+	e = s->data[s->top];
+	return true;
+}
+
+#endif //STACK
