@@ -1,5 +1,5 @@
 /*
-循环队列
+环形队列
 初始化队列 InitQueue(&q) 
 销毁队列 DestroyQueue(&q)
 判断队列是否为空 QueueEmpty(q)
