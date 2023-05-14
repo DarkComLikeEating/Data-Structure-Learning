@@ -22,7 +22,7 @@ typedef struct {
 void InitQueue(SqQueue * &q) {
 	q = (SqQueue * ) malloc (sizeof(SqQueue));
 	q->front = 0;
-	q->rear = 0
+	q->rear = 0;
 }
 
 void DestroyQueue(SqQueue * & q) {
@@ -38,7 +38,7 @@ bool EnQueue(SqQueue * &q, int e) {
 		return false;
 	}
 	q->rear = (q->rear + 1) % Maxsize;
-	q->data[q->rear] e;
+	q->data[q->rear] = e;
 	return true;
 }
 
