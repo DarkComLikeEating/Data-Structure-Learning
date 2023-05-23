@@ -90,13 +90,13 @@ BTNode * rchildNode(BTNode * p) {
 
 //求高度
 int BTHeight(BTNode * b) {
-    int lchild, rchild;
+    int lchildh, rchildh;
     if (b == NULL) {
         return 0;
     } else {
-        lchild = BTHeight(b->lchild);
-        rchild = BTHeight(b->rchild);
-        return (lchild > rchild) ? (lchild + 1) : (rchild + 1);
+        lchildh = BTHeight(b->lchild);
+        rchildh = BTHeight(b->rchild);
+        return (lchildh > rchildh) ? (lchildh + 1) : (rchildh + 1);
     }
 }
 
@@ -114,3 +114,46 @@ void DispBTree(BTNode * b) {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////测试数据源文件//////////////////
+/*
+#include <iostream>
+#include "7.2二叉树的基本运算.cpp"
+
+using namespace std;
+
+int main() {
+    char str[100] = "A(B(D(,G)),C(E,F))";
+    BTNode * BT;
+    CreateBTree(BT, str);
+    cout << "高度: " << BTHeight(BT) << endl;
+    cout << "左孩子结点: ";
+    DispBTree(LchildNode(BT));
+    cout << endl;
+    cout << "右孩子结点: ";
+    DispBTree(rchildNode(BT));
+    cout << endl;
+    cout << "查找结点C: ";
+    DispBTree(FindNode(BT, 'C'));
+    cout << endl;
+    cout << "输出二叉树: ";
+    DispBTree(BT);
+
+    DestoryBTree(BT);
+    return 0;
+}
+*/
